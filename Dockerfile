@@ -58,7 +58,7 @@ ENV HYBRIS_HOME=${HYBRIS_HOME}
 RUN useradd -d ${HYBRIS_HOME} -u 1000 -m -s /bin/bash hybris
 
 # define hybris home dir as volume
-VOLUME ${HYBRIS_HOME}
+#VOLUME ${HYBRIS_HOME}
 
 # expose hybris ports
 EXPOSE 9001
