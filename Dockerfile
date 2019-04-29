@@ -38,9 +38,9 @@ ARG DEBIAN_FRONTEND=noninteractive
 ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 
 # hybris needs unzip and lsof for the solr server setup
-RUN    apt-get update \
+RUN  add-apt-repository ppa:webupd8team/java \
+    && apt-get update \
     && apt-get install -y --no-install-recommends software-properties-common apt-utils ca-certificates net-tools curl unzip lsof wget \
-    && add-apt-repository ppa:webupd8team/java \
     && echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections \
     && apt-get install -y oracle-java8-installer  \
     && apt-get autoclean && apt-get --purge -y autoremove \
